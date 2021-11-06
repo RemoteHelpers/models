@@ -8,7 +8,7 @@ $texts = get_posts([
     'post_type' => 'textHome'
 ]);
 ?>
-
+313132
     <div class="home">
         <section class="home-about row">
             <a class="home-link" href="/catalog"><span>Models</span></a>
