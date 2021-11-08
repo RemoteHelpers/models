@@ -1,6 +1,6 @@
 <?php
     add_action('addStyle', function() {
-        wp_register_style('my-style', get_template_directory_uri().'/css/become.css', '', '0.0000', false);
+        wp_register_style('my-style', get_template_directory_uri().'/css/become.css', '', '0.01', false);
         wp_enqueue_style('my-style');
     });
     do_action( 'addStyle');
@@ -70,11 +70,13 @@ $texts = get_posts([
                 <h2 class="list-heading">You don’t need any experience to become our aspiring model, record a snap about yourself</h2>
                 <h3 class="list-subheading">We would like you to prepare brief information about:</h3>
                 <ul>
-                    <li class="bm-list-item">Your name (surname is not required)</li>
-                    <li class="bm-list-item">City you live in</li>
-                    <li class="bm-list-item">Interests or talents (dancing, singing, passion for reading etc.)</li>
-                    <li class="bm-list-item">Why did you decide to work as a model?</li>
-                    <li class="bm-list-item">How do you handle feedback?</li>
+                    <?php  while( have_rows('steps') ) : the_row(); ?>
+                    
+                    <li class="bm-list-item">
+                         <?php the_sub_field("step"); ?>
+                    </li>
+                    <?php endwhile;
+                    ?>
                 </ul>
             </div>
         </div>
