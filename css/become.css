@@ -108,6 +108,7 @@ h2.subheading {
     margin: auto;
     text-align: center;
     margin-top: 150px;
+    margin-bottom: 88px;
 }
 
 
@@ -126,8 +127,8 @@ h2.big-text {
 h2.big-text::after {
     content: attr(data-desc);
     position: absolute;
-    bottom: -196px;
     left: 56.78%;
+    margin-top: 50px;
     font-family: Kaushan Script;
     font-style: normal;
     font-weight: normal;
@@ -251,7 +252,6 @@ h2.behave-title {
 
 .behave-item {
     text-align: center;
-    max-width: 300px;
 }
 
 p.behave-description {
@@ -262,6 +262,10 @@ p.behave-description {
     line-height: 130%;
     text-align: center;
     color: #424242;
+    width: 280px;
+    text-align: center;
+    align-items: center;
+    margin: 30px auto;
 }
 
 h2.form-title {
@@ -272,13 +276,14 @@ h2.form-title {
     line-height: 100%;
     text-align: center;
     color: #424242;
+    margin-bottom: 100px;
 }
 
 h2.form-title::after {
     content: attr(data-desc);
-    position: relative;
-    bottom: -12px;
-    left: -14.52%;
+    position: absolute;
+    margin-left: -100px;
+    margin-top: 50px;
     font-family: Kaushan Script;
     font-style: normal;
     font-weight: normal;
