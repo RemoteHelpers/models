@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
     min-width: 320px;
     margin: 0;
@@ -153,7 +154,7 @@ a.become-btn-wrapper {
     text-decoration: none;
 }
 
-.become-btn {
+.become-btn-text {
     background: #42A5F5;
     font-family: Montserrat;
     font-style: normal;
@@ -196,7 +197,7 @@ h3.list-subheading {
     font-size: 24px;
     line-height: 130%;
     color: #424242;
-    list-style-image: url(assets/list_style_img.png);
+    list-style-image: url(../assets/img/list_style_img.png);
     margin-bottom: 37px;
 }
 
@@ -244,9 +245,7 @@ h2.behave-title {
     margin-top: 50px;
 }
 
-.tripple-wrapper.first,
-.tripple-wrapper.second,
-.tripple-wrapper.third {
+.tabs-block {
     width: 33%;
 }
 
@@ -431,4 +430,10 @@ h2.form-title::after {
     .tripple-wrapper {
         align-items: center;
     }
+}
+
+/* =================================WW======================================*/
+.behave-description{
+    margin-top: 30px;
+    margin-bottom: 30px;
 }

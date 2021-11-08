@@ -37,38 +37,36 @@ $texts = get_posts([
 
 <section class="content-blk">
         <div class="content-tit">
-            <h1 data-desc="The best model">How to become <br class="mobile-p"> a model?</h1>
+            <h1 data-desc="The best model"><?php the_field("title"); ?></h1>
         </div>
         <div class="content-txt">
             <h8 class="content-text desktop-p">
-                We are looking for beautiful models from all over Ukraine. Our platform includes mostly unprofessional portfolios of the candidates with natural beauty that makes us unique. The way to become a model is long and needs a lot of patience. That’s why specialists
-                of the company are ready to work closely with each of your talents through every stage of the career.
+            <?php the_field("subtitle"); ?>
             </h8>
             <h8 class="content-text mobile-p">
-                We are looking for beautiful models from all over Ukraine. Our platform includes mostly unprofessional portfolios of the candidates with natural beauty that makes us unique.<br> <br> The way to become a model is long and needs a lot of
-                patience. That’s why specialists of the company are ready to work closely with each of your talents through every stage of the career.
+            <?php the_field("subtitle"); ?>
             </h8>
         </div>
 
         <div class="subheading-wrapper">
-            <h2 class="subheading">If you want to become a part of the unique community, record a snap video and fill in the contact form</h2>
+            <h2 class="subheading"><?php the_field("second_subtitle"); ?></h2>
         </div>
     </section>
 
     <section class="page-width">
         <div class="big-text-wrapper">
-            <h2 data-desc="Discover Fashion" class="big-text">How to record a video interview</h2>
+            <h2 data-desc="Discover Fashion" class="big-text"><?php the_field("second_title"); ?></h2>
         </div>
         <div class="double-sec">
             <div class="left">
-                <img src="assets/m14 1.png" alt="model">
+                <img src="<?php the_field("button_img"); ?>" alt="model">
                 <a class="become-btn-wrapper" href="#">
-                    <div class="become-btn">bECOME A MODEL</div>
+                    <div class="become-btn-text"><?php the_field("button_text"); ?></div>
                 </a>
             </div>
             <div class="right">
-                <h2 class="list-heading">You don’t need any experience to become our aspiring model, record a snap about yourself</h2>
-                <h3 class="list-subheading">We would like you to prepare brief information about:</h3>
+                <h2 class="list-heading"><?php the_field("interview_subtitle"); ?></h2>
+                <h3 class="list-subheading"><?php the_field("interview_text"); ?></h3>
                 <ul>
                     <?php  while( have_rows('steps') ) : the_row(); ?>
                     
@@ -84,35 +82,26 @@ $texts = get_posts([
 
     <section id="behave" class="page-width">
         <div class="behave-section-wrapper">
-            <h8 class="preheading">The central part we are interested </h8>
-            <h2 class="behave-title"> How you behave on camera</h2>
+            <h8 class="preheading"><?php the_field("camera_title"); ?></h8>
+            <h2 class="behave-title"><?php the_field("camera_subtitle"); ?></h2>
         </div>
         <div class="tripple-wrapper">
-            <div class="first">
+        <?php  while( have_rows('camera') ) : the_row(); ?>
+            <div class="tabs-block">
                 <div class="behave-item">
-                    <img src="assets/music.png" alt="">
-                    <p class="behave-description">So you can turn on the music for a relaxed atmosphere and dance, move to show your energy. </p>
+                    <img src="<?php the_sub_field("image"); ?>" alt="">
+                    <p class="behave-description"><?php the_sub_field("text"); ?></p>
                 </div>
             </div>
-            <div class="second">
-                <div class="behave-item">
-                    <img src="assets/clothes.png" alt="">
-                    <p class="behave-description">Don’t forget about the <br>clothes that will <br>emphasize your figure. </p>
-                </div>
-            </div>
-            <div class="third">
-                <div class="behave-item">
-                    <img src="assets/parameters.png" alt="">
-                    <p class="behave-description">If you don’t mind, you can show yourself wearing a swimsuit to demonstrate your body parameters. </p>
-                </div>
-            </div>
+        <?php endwhile;
+        ?>
         </div>
 
     </section>
 
     <section id="form" class="page-width">
         <div class="relative">
-            <h2 data-desc="Discover Fashion" class="form-title">Become a part of our model company</h2>
+            <h2 data-desc="Discover Fashion" class="form-title"><?php the_field("form_title"); ?></h2>
         </div>
     </section>
 
