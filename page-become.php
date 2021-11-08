@@ -1,4 +1,10 @@
 <?php
+    add_action('addStyle', function() {
+        wp_register_style('my-style', get_template_directory_uri().'/css/become.css', '', '0.0000', false);
+        wp_enqueue_style('my-style');
+    });
+    do_action( 'addStyle');
+
     get_header('catalog') ;
 $path = get_template_directory_uri();
 
@@ -29,6 +35,84 @@ $texts = get_posts([
 ]);
 ?>
 
+<section class="content-blk">
+        <div class="content-tit">
+            <h1 data-desc="The best model">How to become <br class="mobile-p"> a model?</h1>
+        </div>
+        <div class="content-txt">
+            <h8 class="content-text desktop-p">
+                We are looking for beautiful models from all over Ukraine. Our platform includes mostly unprofessional portfolios of the candidates with natural beauty that makes us unique. The way to become a model is long and needs a lot of patience. That’s why specialists
+                of the company are ready to work closely with each of your talents through every stage of the career.
+            </h8>
+            <h8 class="content-text mobile-p">
+                We are looking for beautiful models from all over Ukraine. Our platform includes mostly unprofessional portfolios of the candidates with natural beauty that makes us unique.<br> <br> The way to become a model is long and needs a lot of
+                patience. That’s why specialists of the company are ready to work closely with each of your talents through every stage of the career.
+            </h8>
+        </div>
+
+        <div class="subheading-wrapper">
+            <h2 class="subheading">If you want to become a part of the unique community, record a snap video and fill in the contact form</h2>
+        </div>
+    </section>
+
+    <section class="page-width">
+        <div class="big-text-wrapper">
+            <h2 data-desc="Discover Fashion" class="big-text">How to record a video interview</h2>
+        </div>
+        <div class="double-sec">
+            <div class="left">
+                <img src="assets/m14 1.png" alt="model">
+                <a class="become-btn-wrapper" href="#">
+                    <div class="become-btn">bECOME A MODEL</div>
+                </a>
+            </div>
+            <div class="right">
+                <h2 class="list-heading">You don’t need any experience to become our aspiring model, record a snap about yourself</h2>
+                <h3 class="list-subheading">We would like you to prepare brief information about:</h3>
+                <ul>
+                    <li class="bm-list-item">Your name (surname is not required)</li>
+                    <li class="bm-list-item">City you live in</li>
+                    <li class="bm-list-item">Interests or talents (dancing, singing, passion for reading etc.)</li>
+                    <li class="bm-list-item">Why did you decide to work as a model?</li>
+                    <li class="bm-list-item">How do you handle feedback?</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="behave" class="page-width">
+        <div class="behave-section-wrapper">
+            <h8 class="preheading">The central part we are interested </h8>
+            <h2 class="behave-title"> How you behave on camera</h2>
+        </div>
+        <div class="tripple-wrapper">
+            <div class="first">
+                <div class="behave-item">
+                    <img src="assets/music.png" alt="">
+                    <p class="behave-description">So you can turn on the music for a relaxed atmosphere and dance, move to show your energy. </p>
+                </div>
+            </div>
+            <div class="second">
+                <div class="behave-item">
+                    <img src="assets/clothes.png" alt="">
+                    <p class="behave-description">Don’t forget about the <br>clothes that will <br>emphasize your figure. </p>
+                </div>
+            </div>
+            <div class="third">
+                <div class="behave-item">
+                    <img src="assets/parameters.png" alt="">
+                    <p class="behave-description">If you don’t mind, you can show yourself wearing a swimsuit to demonstrate your body parameters. </p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="form" class="page-width">
+        <div class="relative">
+            <h2 data-desc="Discover Fashion" class="form-title">Become a part of our model company</h2>
+        </div>
+    </section>
 
 <div class="become-wr">
 
@@ -38,6 +122,7 @@ $texts = get_posts([
             <div>Step 1</div>
         </div>
         <div class="become-body">
+            
             <form id="become-form-1" action="#">
                 <h2 class="become-tit-sub">Basic model information</h2>
                 <ul class="become-list">

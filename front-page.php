@@ -10,6 +10,7 @@ $texts = get_posts([
 ?>
 
     <div class="home">
+        123
         <section class="home-about row">
             <a class="home-link" href="/catalog"><span>Models</span></a>
             <div class="home-txt cell">

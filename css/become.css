@@ -1,0 +1,434 @@
+body {
+    min-width: 320px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #424242;
+    background: white;
+}
+
+img {
+    max-width: 100%;
+}
+
+.desktop-p {
+    display: block;
+}
+
+.mobile-p {
+    display: none;
+}
+
+.page-width {
+    max-width: 1157px;
+    margin: auto;
+}
+
+.content-blk {
+    min-height: calc(100vh - 440px);
+    margin: 0 0 114px;
+    margin-top: 72px;
+}
+
+.content-blk .content-tit {
+    position: relative;
+    margin: 0 0 95px;
+    background: #ffb300;
+    text-align: center;
+}
+
+.content-blk .content-tit h1 {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding: 0 64px;
+    font-size: 72px;
+    line-height: 70px;
+    font-weight: 700;
+    background: white;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 100%;
+    /* identical to box height, or 72px */
+    color: #424242;
+}
+
+.content-blk .content-tit h1::after {
+    content: attr(data-desc);
+    position: absolute;
+    bottom: -29px;
+    left: 64px;
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 36px;
+    color: #ffb300;
+}
+
+.content-txt {
+    max-width: 1116px;
+    margin: auto;
+    text-align: center;
+    margin-top: 10px;
+}
+
+h8.content-text {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 130%;
+    text-align: center;
+    color: #424242;
+}
+
+.subheading-wrapper {
+    max-width: 1087px;
+    margin: auto;
+    text-align: center;
+    margin-top: 130px;
+}
+
+h2.subheading {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 130%;
+    text-align: center;
+    color: #424242;
+}
+
+.big-text-wrapper {
+    max-width: 666px;
+    margin: auto;
+    text-align: center;
+    margin-top: 150px;
+}
+
+
+/* second section */
+
+h2.big-text {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 100%;
+    text-align: center;
+    color: #424242;
+}
+
+h2.big-text::after {
+    content: attr(data-desc);
+    position: absolute;
+    bottom: -196px;
+    left: 56.78%;
+    font-family: Kaushan Script;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 130%;
+    color: #ffb300;
+}
+
+.double-sec {
+    display: flex;
+    flex-direction: row;
+}
+
+.double-sec.left,
+.double-sec.right {
+    width: 50%;
+}
+
+.double-sec .right {
+    padding-left: 67px;
+}
+
+a.become-btn-wrapper {
+    text-decoration: none;
+}
+
+.become-btn {
+    background: #42A5F5;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 130%;
+    text-align: center;
+    padding: 24px 20px;
+    width: fit-content;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 50px;
+}
+
+h2.list-heading {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 130%;
+    color: #424242;
+}
+
+h3.list-subheading {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 130%;
+    color: #424242;
+}
+
+.bm-list-item {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 130%;
+    color: #424242;
+    list-style-image: url(assets/list_style_img.png);
+    margin-bottom: 37px;
+}
+
+.bm-list-item::marker {
+    margin-top: 10px;
+}
+
+
+/* third section */
+
+#behave {
+    margin-top: 150px;
+}
+
+.behave-section-wrapper {
+    margin: auto;
+    width: fit-content;
+    text-align: center;
+}
+
+h8.preheading {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 130%;
+    /* or 23px */
+    text-align: center;
+}
+
+h2.behave-title {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 130%;
+    color: #424242;
+    margin: 0;
+}
+
+.tripple-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.tripple-wrapper.first,
+.tripple-wrapper.second,
+.tripple-wrapper.third {
+    width: 33%;
+}
+
+.behave-item {
+    text-align: center;
+    max-width: 300px;
+}
+
+p.behave-description {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 130%;
+    text-align: center;
+    color: #424242;
+}
+
+h2.form-title {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 100%;
+    text-align: center;
+    color: #424242;
+}
+
+h2.form-title::after {
+    content: attr(data-desc);
+    position: relative;
+    bottom: -12px;
+    left: -14.52%;
+    font-family: Kaushan Script;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 130%;
+    color: #ffb300;
+}
+
+@media screen and (max-width: 767px) {
+    .desktop-p {
+        display: none;
+    }
+    .mobile-p {
+        display: block;
+    }
+    section {
+        padding: 0 37px;
+    }
+    .content-blk {
+        min-height: calc(100vh - 588px);
+        padding: 0;
+    }
+    .content-blk div {
+        padding: 0 37px;
+    }
+    .content-blk .content-tit {
+        position: relative;
+        margin: 0 0 95px;
+        background: #ffb300;
+        text-align: center;
+    }
+    .content-blk .content-tit h1 {
+        padding: 0 30px;
+        font-size: 30px;
+        line-height: 34px;
+    }
+    .content-blk .content-tit {
+        position: relative;
+        margin: 0 0 32px;
+        background: #ffb300;
+        text-align: center;
+    }
+    .content-blk .content-tit h1::after {
+        content: attr(data-desc);
+        position: absolute;
+        bottom: -12px;
+        left: 41%;
+        font-family: "Kaushan Script", cursive;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 30px;
+        color: #ffb300;
+    }
+    h8.content-text {
+        font-size: 15px;
+        line-height: 140%;
+    }
+    h2.subheading {
+        font-size: 18px;
+        line-height: 130%;
+    }
+    h2.big-text {
+        font-size: 36px;
+        line-height: 100%;
+    }
+    h2.big-text::after {
+        bottom: -15px;
+        left: 57.78%;
+        font-size: 18px;
+        line-height: 26px;
+    }
+    .double-sec {
+        flex-direction: column;
+    }
+    a.become-btn-wrapper {
+        display: none;
+    }
+    .double-sec .right {
+        padding-left: 0px;
+    }
+    h2.list-heading {
+        font-size: 18px;
+    }
+    h3.list-subheading {
+        font-size: 15px;
+        line-height: 140%;
+    }
+    .bm-list-item {
+        font-size: 15px;
+        line-height: 140%;
+        list-style-image: url(assets/Group\ 166.png);
+        margin-bottom: 10px;
+    }
+    ul {
+        padding-left: 30px;
+    }
+    h8.preheading {
+        font-size: 12px;
+        line-height: 130%;
+    }
+    h2.behave-title {
+        font-size: 18px;
+    }
+    .tripple-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-top: 25px;
+    }
+    p.behave-description {
+        font-size: 15px;
+        line-height: 140%;
+    }
+    h2.form-title {
+        font-size: 36px;
+        line-height: 100%;
+    }
+    h2.form-title::after {
+        content: attr(data-desc);
+        position: absolute;
+        bottom: -14px;
+        left: 163px;
+        font-family: Kaushan Script;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 130%;
+        color: #ffb300;
+    }
+    .relative {
+        position: relative;
+    }
+    .subheading-wrapper {
+        max-width: 100%;
+        margin: auto;
+        text-align: center;
+        margin-top: 63px;
+    }
+    .big-text-wrapper {
+        max-width: 100%;
+        margin: auto;
+        text-align: center;
+        margin-top: 82px;
+        position: relative;
+    }
+    #behave {
+        margin-top: 67px;
+    }
+    .tripple-wrapper {
+        align-items: center;
+    }
+}
