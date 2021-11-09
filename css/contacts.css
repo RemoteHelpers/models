@@ -1,0 +1,212 @@
+.content-blk{
+    min-height: auto !important;
+    margin-bottom: 100px;
+}
+.contacts__wrapper {
+    text-align: center;
+}
+.contacts__block {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    max-width: 665px;
+
+}
+.contacts__link {
+display: flex;
+justify-content: center;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 130%;
+/* or 23px */
+text-transform: uppercase;
+align-items: center;
+vertical-align: middle;
+
+color: #424242 !important;
+margin-bottom: 25px;
+}
+.contacts__link div{
+    margin-right: 10px;
+
+}
+.contacts__phone {
+}
+.contacts__email {
+}
+.contacts__title {
+    margin-top: 25px;
+    font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 36px;
+line-height: 130%;
+/* or 47px */
+text-align: center;
+
+color: #424242;
+margin-bottom: 30px;
+}
+.contacts__subtitle {
+    font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 130%;
+/* or 23px */
+text-align: center;
+
+color: #424242;
+margin-bottom: 30px;
+}
+.contacts__form {
+    text-align: center;
+}
+.contacts__form form {
+
+}
+.form__main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 665px;
+    margin: 0 auto;
+}
+.form__text{
+    display: flex;
+    flex-direction: column;
+    height: 180px;
+    justify-content: space-between;
+}
+.contacts__form .form__main input{
+    width: 300px;
+    height: 40px;
+    padding: 8px 15px;
+    border: 0.66px solid #424242;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 130%;
+    /* or 23px */
+    
+    color: #424242;
+}
+.contacts__form .form__main input::placeholder{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 130%;
+    /* or 23px */
+    
+    color: #424242;
+    
+    opacity: 0.4;
+}
+.contacts__form form textarea::placeholder{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 130%;
+    /* or 23px */
+    
+    color: #424242;
+    
+    opacity: 0.4;
+}
+
+.contacts__form form textarea{
+    width: 285px;
+    padding: 8px 15px;
+    height: 180px;
+    resize: none;
+    border: 0.66px solid #424242;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 130%;
+    /* or 23px */
+    
+    color: #424242;
+}
+.form__btn{
+    margin-top: 18px;
+}
+.wpcf7-submit{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 130%;
+    /* or 23px */
+    text-align: center;
+    text-transform: uppercase;
+    
+    color: #FFFFFF;
+    border: none;
+
+    background-color: #42A5F5;
+
+    width: 170px;
+    height: 70px;
+    margin-bottom: 155px;
+    margin-top: 36px;
+
+}
+.wpcf7-list-item-label{
+    font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 130%;
+/* or 23px */
+
+color: #424242;
+}
+
+@media (max-width: 700px){
+    .contacts__block{
+        flex-direction: column;
+    }
+    .form__main{
+        flex-direction: column;
+    }
+    .contacts__form form textarea{
+        width: 300px;
+        margin-top: 30px;
+    }
+    .form__btn{
+        margin-top: 50px;
+    }
+    .wpcf7-submit{
+        margin-top: 15px;
+        margin-bottom: 45px;
+        width: 117px;
+        height: 36px;
+    }
+      
+}
+
+@media (max-width: 510px){
+    .contacts__title{
+        font-size: 21px;
+        margin-bottom: 10px;
+        padding: 0 10px;
+    }
+    .contacts__subtitle{
+        font-size: 12px;
+        padding: 0 10px;
+    }
+    .contacts__link{
+        font-size: 15px;
+    }
+    .wpcf7-list-item-label{
+        font-size: 15px;
+    }
+}
