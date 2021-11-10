@@ -48,7 +48,46 @@ get_header(); ?>
         <div class="contacts__title"><?php the_field("contacts_title"); ?></div>
         <div class="contacts__subtitle"><?php the_field("contacts_subtitle"); ?></div>
         <div class="contacts__form">
-            <?php echo do_shortcode('[contact-form-7 id="2252" title="Contact form 1"]'); ?> 
+            <div class="home-form">
+                    <form id="home-form" action="#">
+                        <div class="home-client">
+                            <ul>
+                                <li>
+                                    <input id="contact-name" name="home-name" type="text" placeholder="Name" required>
+                                </li>
+                                <li>
+                                    <input id="contact-phone" name="home-phone" type="tel" placeholder="Phone" required>
+                                </li>
+                                <li>
+                                    <input id="contact-mail" name="home-mail" type="email" placeholder="Email" required>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <textarea id="contact-about" name="home-about" placeholder="Drop a line..." required></textarea>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="home-agree">
+                            <label><input name="home-agree" id="contact-agree" type="checkbox" required>I accept the data processing <a id="home-agree-link" href="#">conditions</a></label>
+                        </div>
+                        <div class="home-btn">
+                            <input id="contact-submit" type="submit" value="Send">
+                        </div>
+                    </form>
+                    <div class="home-wait" id="home-wait">
+                        <div class="home-wait-iwr">
+                            <img class="home-wait-logo" src="<?=$path?>/img/logo.svg" alt="">
+                            <div class="home-wait-txt">Please wait a few seconds, your data is being processed...</div>
+                        </div>
+                    </div>
+                    <div class="home-thanks" id="home-thanks">
+                        <div class="home-thanks-iwr">
+                            <img class="home-thanks-logo" src="<?=$path?>/img/logo.svg" alt="">
+                            <div class="home-thanks-txt">Thanks for your message.<br>Very soon, our managers will contact you, stay in touch and have a nice day!</div>
+                        </div>
+                    </div>
+                </div>
         </div>
     </section>
 
