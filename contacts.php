@@ -5,11 +5,13 @@ Template Post Type: page
 */
 ?>
 <?php 
-add_action('addStyle', function() {
+add_action('addCustom', function() {
     wp_register_style('my-style', get_template_directory_uri().'/css/contacts.css', '', '0.01', false);
     wp_enqueue_style('my-style');
+    wp_register_script('my-script', get_template_directory_uri().'/js/contacts.js', '', '0.01', false);
+    wp_enqueue_script('my-script');
 });
-do_action( 'addStyle');
+do_action( 'addCustom');
 get_header(); ?>
 
     <section class="content-blk">
