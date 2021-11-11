@@ -164,6 +164,48 @@ line-height: 130%;
 color: #424242;
 }
 
+li {
+    list-style-type: none;
+}
+
+.home-client {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 665px;
+    margin: 0 auto;
+}
+#contact-name{
+    width: 300px;
+    height: 40px;
+    padding: 8px 15px;
+    border: 0.66px solid #424242;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 130%;
+    /* or 23px */
+    
+    color: #424242;
+
+}
+#contact-about{
+    width: 285px;
+    padding: 8px 15px;
+    height: 180px;
+    resize: none;
+    border: 0.66px solid #424242;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 130%;
+    /* or 23px */
+    
+    color: #424242;
+}
+
 @media (max-width: 700px){
     .contacts__block{
         flex-direction: column;
