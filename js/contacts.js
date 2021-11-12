@@ -49,3 +49,61 @@ jQuery(document).ready(function ($) {
         });
     }
 });
+    //Contact
+    $("#home-form").on("submit", async function (e) {
+        // e.preventDefault();
+
+        $("#home-wait").fadeIn();
+
+
+        let name = $('#contact-name').val();
+        let phone = $('#contact-phone').val();
+        let mail = $('#contact-mail').val();
+        let about = $('#contact-about').val();
+
+        let formData = new FormData();
+
+        formData.append('name' , name);
+        formData.append('phone' , phone);
+        formData.append('email' , mail);
+        formData.append('message' , about);
+
+        formData.append('action' , 'sendContactUs');
+        try{
+
+            let response = await $.ajax({
+                'url': '/wp-admin/admin-ajax.php',
+                'type': 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+            });
+
+            if(response.code==200 || response.code == 401){
+                $("#contact-wait").fadeOut();
+                $("#contact-thanks").fadeIn();//show thanks
+
+                $('#home-form')[0].reset();
+            }
+
+        }//try
+        catch( ex ){
+
+            console.log('EX: ' , ex);
+
+        }//catch
+
+        // //Wait demo
+        // $("#home-wait").fadeIn("normal", function () { //show wait
+        //     setTimeout(function () {
+        //         $("#home-wait").fadeOut();
+        //         $("#home-thanks").fadeIn();//show thanks
+        //
+        //
+        //     }, 2000);
+        // });
+    });
+    $("#home-thanks").on("click", function () {
+        $(this).fadeOut();
+    });

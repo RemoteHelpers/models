@@ -1,4 +1,5 @@
 <?php
+
 /*
 Template Name: Contacts
 Template Post Type: page
@@ -14,6 +15,7 @@ add_action('addCustom', function() {
 do_action( 'addCustom');
 
 get_header(); ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <section class="content-blk">
         <div class="content-tit">
@@ -76,13 +78,13 @@ get_header(); ?>
                             <input id="contact-submit" type="submit" value="Send">
                         </div>
                     </form>
-                    <div class="home-wait" id="home-wait">
+                    <div class="home-wait" id="contact-wait">
                         <div class="home-wait-iwr">
                             <img class="home-wait-logo" src="<?=$path?>/img/logo.svg" alt="">
                             <div class="home-wait-txt">Please wait a few seconds, your data is being processed...</div>
                         </div>
                     </div>
-                    <div class="home-thanks" id="home-thanks">
+                    <div class="home-thanks" id="contact-thanks">
                         <div class="home-thanks-iwr">
                             <img class="home-thanks-logo" src="<?=$path?>/img/logo.svg" alt="">
                             <div class="home-thanks-txt">Thanks for your message.<br>Very soon, our managers will contact you, stay in touch and have a nice day!</div>
