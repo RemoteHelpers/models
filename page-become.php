@@ -1,4 +1,10 @@
 <?php
+    add_action('addStyle', function() {
+        wp_register_style('my-style', get_template_directory_uri().'/css/become.css', '', '0.01', false);
+        wp_enqueue_style('my-style');
+    });
+    do_action( 'addStyle');
+
     get_header('catalog') ;
 $path = get_template_directory_uri();
 
@@ -29,6 +35,75 @@ $texts = get_posts([
 ]);
 ?>
 
+<section class="content-blk">
+        <div class="content-tit">
+            <h1 data-desc="The best model"><?php the_field("title"); ?></h1>
+        </div>
+        <div class="content-txt">
+            <h8 class="content-text desktop-p">
+            <?php the_field("subtitle"); ?>
+            </h8>
+            <h8 class="content-text mobile-p">
+            <?php the_field("subtitle"); ?>
+            </h8>
+        </div>
+
+        <div class="subheading-wrapper">
+            <h2 class="subheading"><?php the_field("second_subtitle"); ?></h2>
+        </div>
+    </section>
+
+    <section class="page-width">
+        <div class="big-text-wrapper">
+            <h2 data-desc="Discover Fashion" class="big-text"><?php the_field("second_title"); ?></h2>
+        </div>
+        <div class="double-sec">
+            <div class="left">
+                <img src="<?php the_field("button_img"); ?>" alt="model">
+                <a class="become-btn-wrapper" href="#">
+                    <div class="become-btn-text"><?php the_field("button_text"); ?></div>
+                </a>
+            </div>
+            <div class="right">
+                <h2 class="list-heading"><?php the_field("interview_subtitle"); ?></h2>
+                <h3 class="list-subheading"><?php the_field("interview_text"); ?></h3>
+                <ul>
+                    <?php  while( have_rows('steps') ) : the_row(); ?>
+                    
+                    <li class="bm-list-item">
+                         <?php the_sub_field("step"); ?>
+                    </li>
+                    <?php endwhile;
+                    ?>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="behave" class="page-width">
+        <div class="behave-section-wrapper">
+            <h8 class="preheading"><?php the_field("camera_title"); ?></h8>
+            <h2 class="behave-title"><?php the_field("camera_subtitle"); ?></h2>
+        </div>
+        <div class="tripple-wrapper">
+        <?php  while( have_rows('camera') ) : the_row(); ?>
+            <div class="tabs-block">
+                <div class="behave-item">
+                    <img src="<?php the_sub_field("image"); ?>" alt="">
+                    <p class="behave-description"><?php the_sub_field("text"); ?></p>
+                </div>
+            </div>
+        <?php endwhile;
+        ?>
+        </div>
+
+    </section>
+
+    <section id="form" class="page-width">
+        <div class="relative">
+            <h2 data-desc="Discover Fashion" class="form-title"><?php the_field("form_title"); ?></h2>
+        </div>
+    </section>
 
 <div class="become-wr">
 
@@ -38,6 +113,7 @@ $texts = get_posts([
             <div>Step 1</div>
         </div>
         <div class="become-body">
+            
             <form id="become-form-1" action="#">
                 <h2 class="become-tit-sub">Basic model information</h2>
                 <ul class="become-list">
