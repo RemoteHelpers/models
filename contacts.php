@@ -6,16 +6,17 @@ Template Post Type: page
 */
 ?>
 <?php 
+
 add_action('addCustom', function() {
     wp_register_style('my-style', get_template_directory_uri().'/css/contact.css', '', '0.01', false);
     wp_enqueue_style('my-style');
-    wp_register_script('my-script', get_template_directory_uri().'/js/contacts.js', '', '0.01', false);
-    wp_enqueue_script('my-script');
+    // wp_register_script('my-script', get_template_directory_uri().'/js/contacts.js', '', '0.01', false);
+    // wp_enqueue_script('my-script');
 });
 do_action( 'addCustom');
-
+$path = get_template_directory_uri();
 get_header(); ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 
     <section class="content-blk">
         <div class="content-tit">
@@ -52,7 +53,7 @@ get_header(); ?>
         <div class="contacts__subtitle"><?php the_field("contacts_subtitle"); ?></div>
         <div class="contacts__form">
             <div class="home-form">
-                    <form id="home-form" action="#">
+                    <form id="contact-form" action="#">
                         <div class="home-client">
                             <ul>
                                 <li>
@@ -78,16 +79,16 @@ get_header(); ?>
                             <input id="contact-submit" type="submit" value="Send">
                         </div>
                     </form>
-                    <div class="home-wait" id="contact-wait">
-                        <div class="home-wait-iwr">
-                            <img class="home-wait-logo" src="<?=$path?>/img/logo.svg" alt="">
-                            <div class="home-wait-txt">Please wait a few seconds, your data is being processed...</div>
+                    <div class="contact-wait" id="contact-wait">
+                        <div class="contact-wait-iwr">
+                            <img class="contact-wait-logo" src="<?=$path?>/img/logo.svg" alt="">
+                            <div class="contact-wait-txt">Please wait a few seconds, your data is being processed...</div>
                         </div>
                     </div>
-                    <div class="home-thanks" id="contact-thanks">
-                        <div class="home-thanks-iwr">
-                            <img class="home-thanks-logo" src="<?=$path?>/img/logo.svg" alt="">
-                            <div class="home-thanks-txt">Thanks for your message.<br>Very soon, our managers will contact you, stay in touch and have a nice day!</div>
+                    <div class="contact-thanks" id="contact-thanks">
+                        <div class="contact-thanks-iwr">
+                            <img class="contact-thanks-logo" src="<?=$path?>/img/logo.svg" alt="">
+                            <div class="contact-thanks-txt">Thanks for your message.<br>Very soon, our managers will contact you, stay in touch and have a nice day!</div>
                         </div>
                     </div>
                     <div class="home-conditions">
@@ -98,5 +99,5 @@ get_header(); ?>
                 </div>
         </div>
     </section>
-
+    <script src="<?=$path?>/js/contacts.js"></script>
 <?php get_footer();

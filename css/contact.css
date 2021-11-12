@@ -255,7 +255,7 @@ color: #424242;
     }
 }
 
-.home-wait, .home-thanks{
+.contact-wait, .contact-thanks{
     display: none;
     position: absolute;
     top: 0;
@@ -263,4 +263,28 @@ color: #424242;
     bottom: 0;
     left: 0;
     background: rgba(255, 255, 255, 0.95);
+}
+.contact-wait .contact-wait-iwr{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 100%;
+padding: 20px;
+text-align: center;
+}
+.contact-thanks .contact-thanks-iwr{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 100%;
+padding: 20px;
+text-align: center;
+}
+
+
+.contact-wait .contact-wait-logo, .contact-wait .contact-thanks-logo, .contact-thanks .contact-wait-logo, .contact-thanks .contact-thanks-logo{
+width: 450px;
+margin-bottom: 30px;
 }
