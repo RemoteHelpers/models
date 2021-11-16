@@ -60,7 +60,7 @@ $texts = get_posts([
         <div class="double-sec">
             <div class="left">
                 <img src="<?php the_field("button_img"); ?>" alt="model">
-                <a class="become-btn-wrapper" href="#">
+                <a class="become-btn-wrapper" href="#form_scroll">
                     <div class="become-btn-text"><?php the_field("button_text"); ?></div>
                 </a>
             </div>
@@ -78,6 +78,7 @@ $texts = get_posts([
                 </ul>
             </div>
         </div>
+        <iframe src="https://script.google.com/macros/s/AKfycbyAy2UEyFl2W4fCmeYma51dQw1n2bTURswNsTMBq50d_OMNYoJp8ARjxwL_xTL-_S5LUQ/exec" width="500" height="500"></iframe>
     </section>
 
     <section id="behave" class="page-width">
@@ -105,12 +106,12 @@ $texts = get_posts([
         </div>
     </section>
 
-<div class="become-wr">
+<div class="become-wr" id="form_scroll">
 
     <section class="become" id="become-pu-1">
         <div class="become-tit">
             <h1>Become a model</h1>
-            <div>Step 1</div>
+            <div>Step 1/3</div>
         </div>
         <div class="become-body">
             
@@ -149,14 +150,17 @@ $texts = get_posts([
                 <div class="become-btn">
                     <input id="become-submit-1" type="submit" value="Next">
                 </div>
+
             </form>
         </div>
+
     </section>
+
 
     <section class="become" id="become-pu-2">
         <div class="become-tit">
             <h1>Become a model</h1>
-            <div>Step 2</div>
+            <div>Step 2/3</div>
         </div>
         <div class="become-body">
             <form id="become-form-2" action="#">
@@ -225,7 +229,7 @@ $texts = get_posts([
     <section class="become" id="become-pu-3">
         <div class="become-tit">
             <h1>Become a model</h1>
-            <div>Step 3</div>
+            <div>Step 3/3</div>
         </div>
         <div class="become-body">
             <form id="become-form-3" action="#">

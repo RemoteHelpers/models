@@ -33,7 +33,7 @@ get_header(); ?>
                 </svg>
                 </div>
                 <a href="tel:<?php the_field("phone", option); ?>">
-                    Phone: <?php the_field("phone", option); ?>
+                    <?php the_field("phone", option); ?>
                 </a>
             </div>
             <div class="contacts__link contacts__email">
@@ -45,7 +45,7 @@ get_header(); ?>
                     </svg>
                 </div>
                 <a href="mailto:<?php the_field("email", option); ?>">
-                    Email: <?php the_field("email", option); ?>
+                    <?php the_field("email", option); ?>
                 </a>
             </div>
         </div>

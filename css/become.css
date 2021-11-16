@@ -42,7 +42,7 @@ img {
     position: relative;
     display: inline-block;
     vertical-align: top;
-    margin: 0;
+    margin: -1px;
     padding: 0 64px;
     font-size: 72px;
     line-height: 70px;
@@ -60,12 +60,12 @@ img {
 .content-blk .content-tit h1::after {
     content: attr(data-desc);
     position: absolute;
-    bottom: -29px;
+    bottom: -10px;
     left: 64px;
     font-family: "Kaushan Script", cursive;
     font-weight: 400;
-    font-size: 36px;
-    line-height: 36px;
+    font-size: 24px !important;
+    line-height: 130% !important;
     color: #ffb300;
 }
 
@@ -84,6 +84,16 @@ h8.content-text {
     line-height: 130%;
     text-align: center;
     color: #424242;
+    max-width: 1010px;
+    margin: 0 auto;
+}
+.left img{
+    width: 500px;
+    height: 500px;
+}
+.left{
+    max-width: 1500px;
+    width: 100%;
 }
 
 .subheading-wrapper {
@@ -154,7 +164,12 @@ h2.big-text::after {
 a.become-btn-wrapper {
     text-decoration: none;
 }
-
+.become{
+    font-family: Montserrat !important;
+}
+.become-wr{
+    font-family: Montserrat !important;
+}
 .become-btn-text {
     background: #42A5F5;
     font-family: Montserrat;
@@ -211,6 +226,9 @@ h3.list-subheading {
 
 #behave {
     margin-top: 150px;
+    border: 2px solid #42A5F5;
+    padding: 20px;
+    margin-bottom: 142px;
 }
 
 .behave-section-wrapper {
@@ -293,6 +311,15 @@ h2.form-title::after {
 }
 
 @media screen and (max-width: 767px) {
+    .left img{
+        width: 100%;
+        height: 100%;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    .tabs-block{
+        width: 100%;
+    }
     .desktop-p {
         display: none;
     }
@@ -329,8 +356,8 @@ h2.form-title::after {
     .content-blk .content-tit h1::after {
         content: attr(data-desc);
         position: absolute;
-        bottom: -12px;
-        left: 41%;
+        bottom: -12px !important;
+        left: 41% !important;
         font-family: "Kaushan Script", cursive;
         font-weight: 400;
         font-size: 16px;
@@ -400,12 +427,13 @@ h2.form-title::after {
     h2.form-title {
         font-size: 36px;
         line-height: 100%;
+        margin-bottom: 50px;
     }
     h2.form-title::after {
         content: attr(data-desc);
         position: absolute;
         bottom: -14px;
-        left: 163px;
+        left: auto;
         font-family: Kaushan Script;
         font-style: normal;
         font-weight: normal;
@@ -431,6 +459,7 @@ h2.form-title::after {
     }
     #behave {
         margin-top: 67px;
+        margin: 60px;
     }
     .tripple-wrapper {
         align-items: center;
