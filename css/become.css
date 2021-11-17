@@ -11,7 +11,9 @@ body {
 img {
     max-width: 100%;
 }
-
+.list-hidden-img{
+    display: none;
+}
 .desktop-p {
     display: block;
 }
@@ -21,7 +23,8 @@ img {
 }
 
 .page-width {
-    max-width: 1157px;
+    max-width: 1758px;
+    padding: 0 30px;
     margin: auto;
 }
 
@@ -88,8 +91,9 @@ h8.content-text {
     margin: 0 auto;
 }
 .left img{
-    width: 500px;
-    height: 500px;
+    width: 745px;
+    height: auto;
+    margin-top: 40px;
 }
 .left{
     max-width: 1500px;
@@ -97,11 +101,13 @@ h8.content-text {
 }
 
 .subheading-wrapper {
-    max-width: 1087px;
+    background: #FAFAFA;
+    padding: 50px 0;
     margin: auto;
     text-align: center;
     margin-top: 130px;
 }
+ 
 
 h2.subheading {
     font-family: Montserrat;
@@ -187,7 +193,18 @@ a.become-btn-wrapper {
     margin: auto;
     margin-top: 50px;
 }
+.list-number{
+    font-family: Kaushan Script;
+    text-align: left !important;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 144px;
+    line-height: 130%;
+    /* or 187px */
+    text-align: center;
 
+    color: #FFB300;
+}
 h2.list-heading {
     font-family: Montserrat;
     font-style: normal;
@@ -195,15 +212,18 @@ h2.list-heading {
     font-size: 36px;
     line-height: 130%;
     color: #424242;
+    margin-bottom: 0 !important;
 }
 
 h3.list-subheading {
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
-    font-size: 30px;
+    font-size: 18px;
     line-height: 130%;
     color: #424242;
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 
 .bm-list-item {
@@ -215,7 +235,10 @@ h3.list-subheading {
     color: #424242;
     list-style-image: url(../assets/img/list_style_img.png);
     margin-bottom: 37px;
+    padding-left: 30px;
+    list-style-type: none;
 }
+
 
 .bm-list-item::marker {
     margin-top: 10px;
@@ -316,6 +339,10 @@ h2.form-title::after {
         height: 100%;
         margin-top: 30px;
         margin-bottom: 20px;
+        display: none;
+    }
+    .list-number{
+        text-align: center !important;
     }
     .tabs-block{
         width: 100%;
@@ -367,10 +394,17 @@ h2.form-title::after {
     h8.content-text {
         font-size: 15px;
         line-height: 140%;
+        text-align: left;
     }
     h2.subheading {
-        font-size: 18px;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
         line-height: 130%;
+        /* or 31px */
+        text-align: center;
+        padding: 15px;
     }
     h2.big-text {
         font-size: 36px;
@@ -388,11 +422,19 @@ h2.form-title::after {
     a.become-btn-wrapper {
         display: none;
     }
+    .become{
+        padding: 0 !important;
+    }
     .double-sec .right {
         padding-left: 0px;
     }
     h2.list-heading {
         font-size: 18px;
+        text-align: center;
+    }
+    .list-hidden-img{
+        margin-top: 20px;
+        display: block;
     }
     h3.list-subheading {
         font-size: 15px;
@@ -401,7 +443,7 @@ h2.form-title::after {
     .bm-list-item {
         font-size: 15px;
         line-height: 140%;
-        list-style-image: url(assets/Group\ 166.png);
+  
         margin-bottom: 10px;
     }
     ul {
@@ -423,24 +465,14 @@ h2.form-title::after {
     p.behave-description {
         font-size: 15px;
         line-height: 140%;
+        width: 100%;
     }
     h2.form-title {
         font-size: 36px;
         line-height: 100%;
         margin-bottom: 50px;
     }
-    h2.form-title::after {
-        content: attr(data-desc);
-        position: absolute;
-        bottom: -14px;
-        left: auto;
-        font-family: Kaushan Script;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 130%;
-        color: #ffb300;
-    }
+
     .relative {
         position: relative;
     }
@@ -460,9 +492,39 @@ h2.form-title::after {
     #behave {
         margin-top: 67px;
         margin: 60px;
+        padding: 20px 0 !important;
     }
     .tripple-wrapper {
         align-items: center;
+    }
+    .become .become-tit div{
+        font-size: 18px !important;
+    }
+    .bm-list-item{
+        list-style-type: none;
+        list-style-image:none;
+        padding-left: 0;
+    }
+    .bm-list-item::before{
+        content: '';
+    
+        display: inline-block;
+      
+        height: 18px;
+      
+        width: 18px;
+      
+        background-size: 18px;
+      
+        background-image: url("../assets/img/list_style_img.png");
+      
+        background-repeat: no-repeat;
+        margin-right: 15px;
+        vertical-align: middle;
+      
+    }
+    .right ul{
+        padding: 0;
     }
 }
 

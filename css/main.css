@@ -2533,10 +2533,12 @@ img {
   justify-content: center;
 }
 .become .become-tit h1 {
-  margin: 0;
-  font-weight: 300;
-  font-size: 24px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
   line-height: 28px;
+  margin-bottom: 0 !important;
 }
 .become .become-tit div {
   font-weight: 600;
@@ -3087,3 +3089,13 @@ img {
   font-style: italic;
 }
 
+.form-number{
+  font-family: Kaushan Script;
+font-style: normal;
+font-weight: normal;
+font-size: 144px;
+line-height: 130%;
+/* or 187px */
+text-align: center;
+color: #FFB300;
+}

@@ -54,18 +54,15 @@ $texts = get_posts([
     </section>
 
     <section class="page-width">
-        <div class="big-text-wrapper">
-            <h2 data-desc="Discover Fashion" class="big-text"><?php the_field("second_title"); ?></h2>
-        </div>
         <div class="double-sec">
             <div class="left">
                 <img src="<?php the_field("button_img"); ?>" alt="model">
-                <a class="become-btn-wrapper" href="#form_scroll">
-                    <div class="become-btn-text"><?php the_field("button_text"); ?></div>
-                </a>
+              
             </div>
             <div class="right">
+                <p class="list-number">1.</p>
                 <h2 class="list-heading"><?php the_field("interview_subtitle"); ?></h2>
+                <img class="list-hidden-img" src="<?php the_field("button_img"); ?>" alt="model">
                 <h3 class="list-subheading"><?php the_field("interview_text"); ?></h3>
                 <ul>
                     <?php  while( have_rows('steps') ) : the_row(); ?>
@@ -78,12 +75,10 @@ $texts = get_posts([
                 </ul>
             </div>
         </div>
-        <iframe src="https://script.google.com/macros/s/AKfycbyAy2UEyFl2W4fCmeYma51dQw1n2bTURswNsTMBq50d_OMNYoJp8ARjxwL_xTL-_S5LUQ/exec" width="500" height="500"></iframe>
     </section>
 
     <section id="behave" class="page-width">
         <div class="behave-section-wrapper">
-            <h8 class="preheading"><?php the_field("camera_title"); ?></h8>
             <h2 class="behave-title"><?php the_field("camera_subtitle"); ?></h2>
         </div>
         <div class="tripple-wrapper">
@@ -102,7 +97,8 @@ $texts = get_posts([
 
     <section id="form" class="page-width">
         <div class="relative">
-            <h2 data-desc="Discover Fashion" class="form-title"><?php the_field("form_title"); ?></h2>
+            <p class="form-number">2.</p>
+            <h2 class="form-title"><?php the_field("form_title"); ?></h2>
         </div>
     </section>
 
