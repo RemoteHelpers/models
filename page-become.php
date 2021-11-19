@@ -54,18 +54,15 @@ $texts = get_posts([
     </section>
 
     <section class="page-width">
-        <div class="big-text-wrapper">
-            <h2 data-desc="Discover Fashion" class="big-text"><?php the_field("second_title"); ?></h2>
-        </div>
         <div class="double-sec">
             <div class="left">
                 <img src="<?php the_field("button_img"); ?>" alt="model">
-                <a class="become-btn-wrapper" href="#">
-                    <div class="become-btn-text"><?php the_field("button_text"); ?></div>
-                </a>
+              
             </div>
             <div class="right">
+                <p class="list-number">1.</p>
                 <h2 class="list-heading"><?php the_field("interview_subtitle"); ?></h2>
+                <img class="list-hidden-img" src="<?php the_field("button_img"); ?>" alt="model">
                 <h3 class="list-subheading"><?php the_field("interview_text"); ?></h3>
                 <ul>
                     <?php  while( have_rows('steps') ) : the_row(); ?>
@@ -82,7 +79,6 @@ $texts = get_posts([
 
     <section id="behave" class="page-width">
         <div class="behave-section-wrapper">
-            <h8 class="preheading"><?php the_field("camera_title"); ?></h8>
             <h2 class="behave-title"><?php the_field("camera_subtitle"); ?></h2>
         </div>
         <div class="tripple-wrapper">
@@ -101,16 +97,17 @@ $texts = get_posts([
 
     <section id="form" class="page-width">
         <div class="relative">
-            <h2 data-desc="Discover Fashion" class="form-title"><?php the_field("form_title"); ?></h2>
+            <p class="form-number">2.</p>
+            <h2 class="form-title"><?php the_field("form_title"); ?></h2>
         </div>
     </section>
 
-<div class="become-wr">
+<div class="become-wr" id="form_scroll">
 
     <section class="become" id="become-pu-1">
         <div class="become-tit">
             <h1>Become a model</h1>
-            <div>Step 1</div>
+            <div>Step 1/3</div>
         </div>
         <div class="become-body">
             
@@ -149,14 +146,17 @@ $texts = get_posts([
                 <div class="become-btn">
                     <input id="become-submit-1" type="submit" value="Next">
                 </div>
+
             </form>
         </div>
+
     </section>
+
 
     <section class="become" id="become-pu-2">
         <div class="become-tit">
             <h1>Become a model</h1>
-            <div>Step 2</div>
+            <div>Step 2/3</div>
         </div>
         <div class="become-body">
             <form id="become-form-2" action="#">
@@ -225,7 +225,7 @@ $texts = get_posts([
     <section class="become" id="become-pu-3">
         <div class="become-tit">
             <h1>Become a model</h1>
-            <div>Step 3</div>
+            <div>Step 3/3</div>
         </div>
         <div class="become-body">
             <form id="become-form-3" action="#">

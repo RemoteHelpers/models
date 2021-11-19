@@ -1,66 +1,16 @@
 jQuery(document).ready(function ($) {
-   //Conditions
-    let homeScrollTop = 0;
-    $("#home-agree-link").on("click", function(e){
-        e.preventDefault();
-        homeScrollTop = $(document).scrollTop();
-        $("html, body").animate({scrollTop: 0}, 400);
-        $(".shade-conditions").fadeIn();
-        $(".home-conditions").fadeIn();
-    });
-    $(".shade-conditions").on("click", function(){
-        $(".shade-conditions").fadeOut();
-        $(".home-conditions").fadeOut();
-        $("html, body").animate({scrollTop: homeScrollTop}, 400);
-    });
-
-    //Mobile menu
-    $(".head-nav-tr").on("click", function (e) {
-        e.preventDefault();
-        $(".shade-menu").fadeIn();
-        $(".head-nav").fadeIn("normal", function () {
-            $(this).addClass("active").removeAttr("style");
-        });
-        $(".head-nav-tr").addClass("active");
-        $(".head-home").addClass("active");
-    });
-    $(".shade-menu").on("click", function () {
-        $(".shade-menu").fadeOut();
-        $(".head-nav").fadeOut("normal", function () {
-            $(this).removeClass("active").removeAttr("style");
-        });
-        $(".head-nav-tr").removeClass("active");
-        $(".head-home").removeClass("active");
-    });
-
-    //Float buttons
-    //Filter
-    if ($(".catalog-filter").length > 0) {
-        $("#js-filter").addClass("visible");
-        $("#js-filter").on("click", function (e) {
-            e.preventDefault();
-            $("html, body").animate({scrollTop: 0}, 400);
-            $(".shade-filter").fadeIn();
-            $(".catalog-filter").fadeIn();
-        });
-        $(".shade-filter").on("click", function () {
-            $(".shade-filter").fadeOut();
-            $(".catalog-filter").fadeOut();
-        });
-    }
-});
-    //Contact
-    $("#home-form").on("submit", async function (e) {
+     //Contact
+    $("#contact-form").on("submit", async function (e) {
         // e.preventDefault();
 
-        $("#home-wait").fadeIn();
+        $("#contact-wait").fadeIn();
 
 
         let name = $('#contact-name').val();
         let phone = $('#contact-phone').val();
         let mail = $('#contact-mail').val();
         let about = $('#contact-about').val();
-
+    
         let formData = new FormData();
 
         formData.append('name' , name);
@@ -70,7 +20,7 @@ jQuery(document).ready(function ($) {
 
         formData.append('action' , 'sendContactUs');
         try{
-
+            console.log("1")
             let response = await $.ajax({
                 'url': '/wp-admin/admin-ajax.php',
                 'type': 'POST',
@@ -81,29 +31,82 @@ jQuery(document).ready(function ($) {
             });
 
             if(response.code==200 || response.code == 401){
+                console.log("2")
                 $("#contact-wait").fadeOut();
                 $("#contact-thanks").fadeIn();//show thanks
-
-                $('#home-form')[0].reset();
+                console.log("3")
+                $('#contact-form')[0].reset();
             }
 
         }//try
         catch( ex ){
-
+            console.log("4")
             console.log('EX: ' , ex);
 
         }//catch
 
-        // //Wait demo
-        // $("#home-wait").fadeIn("normal", function () { //show wait
-        //     setTimeout(function () {
-        //         $("#home-wait").fadeOut();
-        //         $("#home-thanks").fadeIn();//show thanks
-        //
-        //
-        //     }, 2000);
-        // });
+        //Wait demo
+        $("#contact-wait").fadeIn("normal", function () { //show wait
+            setTimeout(function () {
+                $("#contact-wait").fadeOut();
+                $("#contact-thanks").fadeIn();//show thanks
+        
+        
+            }, 2000);
+        });
     });
-    $("#home-thanks").on("click", function () {
+    $("#contact-thanks").on("click", function () {
         $(this).fadeOut();
     });
+
+});
+
+$(document).ready(function(){
+     
+    // client id of the project
+
+    var clientId = "307783078919-0hoh2642qf8iu32kf4uqr3o08r0qb5hc.apps.googleusercontent.com";
+
+    // redirect_uri of the project
+
+    var redirect_uri = "http://localhost/GoogleDriveUpload/upload.html";
+
+    // scope of the project
+
+    var scope = "https://www.googleapis.com/auth/drive";
+
+    // the url to which the user is redirected to
+
+    var url = "";
+
+
+    // this is event click listener for the button
+
+    $("#login").click(function(){
+
+       // this is the method which will be invoked it takes four parameters
+
+       signIn(clientId,redirect_uri,scope,url);
+
+    });
+
+    function signIn(clientId,redirect_uri,scope,url){
+     
+       // the actual url to which the user is redirected to 
+
+       url = "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri="+redirect_uri
+       +"&prompt=consent&response_type=code&client_id="+clientId+"&scope="+scope
+       +"&access_type=offline";
+
+       // this line makes the user redirected to the url
+
+       window.location = url;
+
+
+
+
+    }
+
+
+
+});
