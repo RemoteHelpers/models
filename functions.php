@@ -50,6 +50,7 @@ function mdlua_scripts() {
     wp_enqueue_style( 'mdlua-style', get_stylesheet_uri(), array(), null );
 
     wp_enqueue_style( 'mdlua-css', get_template_directory_uri() . '/css/main.css', array(), '0.0.17' );
+    wp_enqueue_style( 'notifybar-css', get_template_directory_uri() . '/css/jquery.notifyBar.css', array(), '0.0.17' );
 
     wp_enqueue_script( 'jquery' );
 

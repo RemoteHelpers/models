@@ -50,20 +50,26 @@ jQuery(document).ready(function ($) {
         });
     }
     //Order
+    const testobj = $("#js-selected").data("id") && $("#orderNow").data("id");
+    console.log(testobj)
+    
     function isModelSelected(){
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels")) || [];
         let currentModelID = $("#js-selected").data("id");
+        //  && $("#orderNow").data("id");
         let indexOfCurrentModelID = selectedModels.indexOf(currentModelID);
         return (indexOfCurrentModelID > -1);
     }
-    function isSelectedEpty(){
+    function isSelectedEmpty(){
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels")) || [];
         return (selectedModels.length < 1);
     }
     function addModelToLS(){
+        console.log(1)
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels")) || [];
         let currentModelID = $("#js-selected").data("id");
         selectedModels.push(currentModelID);
+        console.log(currentModelID);
         localStorage.setItem("selectedModels", JSON.stringify(selectedModels));
     }
     function removeModelFromLS(){
@@ -73,6 +79,10 @@ jQuery(document).ready(function ($) {
         selectedModels.splice(indexOfCurrentModelID, 1);
         localStorage.setItem("selectedModels", JSON.stringify(selectedModels));
     }
+    function showNotification(){
+
+    }
+
     async function fillSelected(){
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels")) || [];
         let formData = new FormData();
@@ -112,48 +122,95 @@ jQuery(document).ready(function ($) {
             console.log(ex);
         }
     }
-    if(!(isSelectedEpty())){
+    if(!(isSelectedEmpty())){
         $("#js-order").addClass("visible");
     }
     if($("#js-selected").length>0){
         if(isModelSelected()){
             $("#js-selected").addClass("selected");
+            // $("#js-selected").text('Added');
+            $("#js-selected").text('Added');
         }
     }
     $(".starred-models").on("click", ".starred-model-rem", function(e){
         e.preventDefault();
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
+        console.log($(this))
         let currentModelID = $(this).data("id");
         let indexOfCurrentModelID = selectedModels.indexOf(currentModelID);
         if($("#js-selected").length>0){
             if(isModelSelected() && ($("#js-selected").data("id")===currentModelID)){
+                
                 $("#js-selected").removeClass("selected");
+                $("#js-selected").text("add to list");
+                
             }
         }
         selectedModels.splice(indexOfCurrentModelID, 1);
         localStorage.setItem("selectedModels", JSON.stringify(selectedModels));
         $(this).parent().remove();
-        if(isSelectedEpty()){
+        if(isSelectedEmpty()){
             $(".shade-starred").fadeOut();
             $(".starred").fadeOut();
             $("#js-order").removeClass("visible");
         }
     });
-    $("#js-selected").on("click", function(e){
-        e.preventDefault();
-        if($(this).hasClass("selected")){
-            $(this).removeClass("selected");
-            removeModelFromLS();
-            if(isSelectedEpty()){
-                $("#js-order").removeClass("visible");
-            }
+    $( document ).ready(function() {
+        let selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
+        if(selectedModels.includes($("#js-selected").data("id"))){
+            console.log('this model is in local storage');
+            $("#js-selected").text('Added')
+            $("#js-selected").addClass('selected')
         }
         else{
-            $(this).addClass("selected");
-            if(isSelectedEpty()){
-                $("#js-order").addClass("visible");
-            }
+            console.log('isnt')
+        }
+    });
+    $("#js-selected").on("click", function(e){
+        e.preventDefault();
+        let selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
+        console.log(selectedModels)
+        if(selectedModels.includes($(this).data("id"))){
+            console.log('already in — removing from ls')
+            removeModelFromLS()
+            console.log(selectedModels)
+            $(this).removeClass("selected");
+            $(this).text('Add to list')
+            $("#js-order").removeClass("visible");
+        }
+        else{
+            $.notifyBar({html: 'Added to the list',
+            cssClass: 'success'});
+            console.log('adding to local')
             addModelToLS();
+            $(this).addClass("selected");
+            $(this).text('Added')
+            $("#js-order").addClass("visible");
+            console.log(selectedModels);
+            showNotification();
+        }
+        
+    });
+    $("#orderNow").on("click", function(e){
+        e.preventDefault();
+        let selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
+        console.log(selectedModels);
+        if(!selectedModels.includes($(this).data("id"))){
+            addModelToLS();
+            $("html, body").animate({scrollTop: 0}, 400);
+            $(".shade-starred").fadeIn();
+            $(".starred").fadeIn();
+            fillSelected();
+            $("#js-selected").addClass('selected')
+            $("#js-selected").text('added')
+            $("#js-order").addClass("visible");
+        }
+        else{
+            $("html, body").animate({scrollTop: 0}, 400);
+            $(".shade-starred").fadeIn();
+            $(".starred").fadeIn();
+            fillSelected();
+            
         }
     });
     $("#js-order").on("click", function(e){
@@ -335,7 +392,7 @@ jQuery(document).ready(function ($) {
             slidesToShow: 1,
             slidesToScroll: 1,
             fade: true,
-            asNavFor: '.madel-slide-nav'
+            // asNavFor: '.madel-slide-nav'
         });
         $(".madel-slide-nav").slick({
             slidesToShow: 7,

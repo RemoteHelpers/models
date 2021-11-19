@@ -57,6 +57,26 @@ $id = get_the_ID();
 
     <section class="model">
         <div class="madel-info-back"><a href="/catalog">Back to models</a></div>
+        <div class="madel-info-tit mobile">
+            <h1><?= stristr($post->post_title, '-', true)?></h1>  
+        </div>
+        <ul class="madel-info-cat mobile">
+                <?php foreach ($categories as $category) : ?>
+
+                <?php
+                    if($category->term_id == 1 || $category->slug == 'nude' || $category->slug == 'topless') continue;
+
+                    $isCat = false;
+                    if (in_array($category->term_id, $categoriesModel)) {
+                        $isCat = true;
+                    }
+                    ?>
+<!--                    --><?php //$categoryLink = get_category_link($category->term_id) ?>
+                    <?php $class = $isCat ? 'class="active-cat"': '' ?>
+                    <li <?=$class?>><?=$category->name?></li>
+                <?php endforeach; ?>
+
+            </ul>
         <div class="madel-slide">
             <?php
             if ( $image_array ) {
@@ -75,28 +95,11 @@ $id = get_the_ID();
         </div>
         <div class="madel-info">
 
-            <div class="madel-info-tit">
-                <h1><?= stristr($post->post_title, '-', true)?> <span>ID:<?=$id?></span></h1>
-                <a id="js-selected" data-id="<?=$id?>" href="#"><i></i></a>
+            <div class="madel-info-tit desktop">
+                <h1><?= stristr($post->post_title, '-', true)?> 
+                </h1>  
             </div>
-            <div class="madel-info-tit-sub">
-                <h2>Portfolio</h2>
-            </div>
-            <ul class="madel-info-list">
-                <li><dl><dt>Height:</dt><dd><?=$height?>cm</dd></dl></li>
-                <li><dl><dt>Bust:</dt><dd><?=$bust?>cm</dd></dl></li>
-                <li><dl><dt>Waist:</dt><dd><?=$waist?>cm</dd></dl></li>
-                <li><dl><dt>Hips:</dt><dd><?=$hips?>cm</dd></dl></li>
-                <li><dl><dt>Hair:</dt><dd><?=$hair?></dd></dl></li>
-                <li><dl><dt>Eyes:</dt><dd><?=$eyes?></dd></dl></li>
-                <li><dl><dt>Age:</dt><dd><?=$age?></dd></dl></li>
-
-            </ul>
-            <div class="madel-info-tit-sub">
-                <h2>Categories</h2>
-            </div>
-            <ul class="madel-info-cat">
-
+            <ul class="madel-info-cat desktop">
                 <?php foreach ($categories as $category) : ?>
 
                 <?php
@@ -113,8 +116,24 @@ $id = get_the_ID();
                 <?php endforeach; ?>
 
             </ul>
+            
+            <ul class="madel-info-list">
+                <li><dl><dt>Height:</dt><dd><?=$height?>cm</dd></dl></li>
+                <li><dl><dt>Bust:</dt><dd><?=$bust?>cm</dd></dl></li>
+                <li><dl><dt>Waist:</dt><dd><?=$waist?>cm</dd></dl></li>
+                <li><dl><dt>Hips:</dt><dd><?=$hips?>cm</dd></dl></li>
+                <li><dl><dt>Hair:</dt><dd><?=$hair?></dd></dl></li>
+                <li><dl><dt>Eyes:</dt><dd><?=$eyes?></dd></dl></li>
+                <li><dl><dt>Age:</dt><dd><?=$age?></dd></dl></li>
+
+            </ul>
+            <div class="cart-button-container">
+                <a id="js-selected" data-id="<?=$id?>" href="#" class='cart-button blue'>Add to list</a>
+                <a id="orderNow" data-id="<?=$id?>" href="#" class='cart-button'>Order now</a>
+            </div>
+            
         </div>
-        <div class="madel-slide-nav">
+        <!-- <div class="madel-slide-nav">
             <?php
             if ( $image_array ) {
 
@@ -128,8 +147,8 @@ $id = get_the_ID();
                 }
             }
             ?>
-<!--            <div><img src="--><?//=$imageThumbSm?><!--" alt=""></div>-->
-        </div>
+
+        </div> -->
     </section>
 
     <section class="models-similar">
@@ -203,6 +222,7 @@ $id = get_the_ID();
 </div>
 
 <script src="<?=$path?>/js/slick.min.js"></script>
+<script src="<?=$path?>/js/jquery.notifyBar.js"></script>
 <?php
     get_footer();
 ?>
