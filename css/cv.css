@@ -83,10 +83,19 @@
 }
 .add {
     background: #42A5F5;
+    transition-duration: .3s;
 
+}
+.add:hover{
+    background: #FFB300;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 .order {
     background: #FFB300;
+    transition-duration: .3s;
+}
+.order:hover{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 @media (max-width: 1000px){
 
