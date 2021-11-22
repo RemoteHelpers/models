@@ -1,4 +1,10 @@
 <?php
+add_action('addStyle', function() {
+    wp_register_style('my-style', get_template_directory_uri().'/css/cv.css', '', '0.01', false);
+    wp_enqueue_style('my-style');
+});
+do_action( 'addStyle');
+
 get_header() ;
 
 
@@ -91,15 +97,15 @@ $id = get_the_ID();
                 }
             }
             ?>
-<!--            <div><img src="--><?//=$imageThumb?><!--" alt=""></div>-->
         </div>
         <div class="madel-info">
 
-            <div class="madel-info-tit desktop">
-                <h1><?= stristr($post->post_title, '-', true)?> 
-                </h1>  
+            <div class="madel-info-tit">
+                <h1 data-desc="Proffile"><?= stristr($post->post_title, '-', true)?>
+                </h1>
             </div>
-            <ul class="madel-info-cat desktop">
+            <ul class="madel-info-cat">
+
                 <?php foreach ($categories as $category) : ?>
 
                 <?php
@@ -110,13 +116,25 @@ $id = get_the_ID();
                         $isCat = true;
                     }
                     ?>
-<!--                    --><?php //$categoryLink = get_category_link($category->term_id) ?>
                     <?php $class = $isCat ? 'class="active-cat"': '' ?>
                     <li <?=$class?>><?=$category->name?></li>
                 <?php endforeach; ?>
+                <div class="madel-slide second_adaptive">
+                    <?php
+                    if ( $image_array ) {
 
+                        foreach ( $image_array as $image ) {
+
+                            $fullimg = pods_image_url( $image['ID'], 'slideBig');
+
+                            ?>
+                            <div><img src="<?=$fullimg?>" alt=""></div>
+                    <?php
+                        }
+                    }
+                    ?>
+                </div>
             </ul>
-            
             <ul class="madel-info-list">
                 <li><dl><dt>Height:</dt><dd><?=$height?>cm</dd></dl></li>
                 <li><dl><dt>Bust:</dt><dd><?=$bust?>cm</dd></dl></li>
@@ -127,28 +145,12 @@ $id = get_the_ID();
                 <li><dl><dt>Age:</dt><dd><?=$age?></dd></dl></li>
 
             </ul>
-            <div class="cart-button-container">
-                <a id="js-selected" data-id="<?=$id?>" href="#" class='cart-button blue'>Add to list</a>
-                <a id="orderNow" data-id="<?=$id?>" href="#" class='cart-button'>Order now</a>
+            <div class="model__buttons">
+                <a id="js-selected" data-id="<?=$id?>" href="#" class='model__btn add cart-button blue '>Add to list</a>
+                <a id="orderNow" data-id="<?=$id?>" href="#" class='model__btn order cart-button'>Order now</a>
             </div>
-            
         </div>
-        <!-- <div class="madel-slide-nav">
-            <?php
-            if ( $image_array ) {
-
-                foreach ( $image_array as $image ) {
-
-                    $fullimg = pods_image_url( $image['ID'], 'slideSmall');
-
-                    ?>
-                    <div><img src="<?=$fullimg?>" alt=""></div>
-                    <?php
-                }
-            }
-            ?>
-
-        </div> -->
+        
     </section>
 
     <section class="models-similar">
