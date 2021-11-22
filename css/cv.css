@@ -97,6 +97,9 @@
 .order:hover{
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+.model__buttons .selected{
+    background: #f1f1f1;
+}
 @media (max-width: 1000px){
 
     .model__buttons{
