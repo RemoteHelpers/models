@@ -50,9 +50,18 @@ jQuery(document).ready(function ($) {
         });
     }
     //Order
-    const testobj = $("#js-selected").data("id") && $("#orderNow").data("id");
-    console.log(testobj)
-    
+  
+    function checkLS(){
+        let selectedModels;
+        if(!localStorage.getItem('selectedModels')){
+            console.log('pizda')
+            selectedModels = []
+        }
+        else{
+             selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
+        }
+        
+    }
     function isModelSelected(){
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels")) || [];
         let currentModelID = $("#js-selected").data("id");
@@ -79,10 +88,7 @@ jQuery(document).ready(function ($) {
         selectedModels.splice(indexOfCurrentModelID, 1);
         localStorage.setItem("selectedModels", JSON.stringify(selectedModels));
     }
-    function showNotification(){
-
-    }
-
+    
     async function fillSelected(){
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels")) || [];
         let formData = new FormData();
@@ -156,21 +162,53 @@ jQuery(document).ready(function ($) {
         }
     });
     $( document ).ready(function() {
-        let selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
-        if(selectedModels.includes($("#js-selected").data("id"))){
-            console.log('this model is in local storage');
-            $("#js-selected").text('Added')
-            $("#js-selected").addClass('selected')
-        }
-        else{
-            console.log('isnt')
-        }
+        checkLS()
+        // let selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
+        // if(selectedModels.includes($("#js-selected").data("id"))){
+        //     console.log('this model is in local storage');
+        //     $("#js-selected").text('Added')
+        //     $("#js-selected").addClass('selected')
+        // }
+        // else{
+        //     console.log('isnt')
+        // }
     });
     $("#js-selected").on("click", function(e){
         e.preventDefault();
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
-        console.log(selectedModels)
-        if(selectedModels.includes($(this).data("id"))){
+        console.log(JSON.parse(localStorage.getItem("selectedModels")))
+        // switch(selectedModels){
+        //     case null:
+        //         console.log('null')
+        //         addModelToLS(); 
+        //         $(this).addClass("selected");
+        //         $(this).text('Added')
+        //         $("#js-order").addClass("visible");
+        //         break;
+        //     case []:
+        //         console.log('[]')
+        //         addModelToLS(); 
+        //         break;
+        //     case selectedModels.includes($(this).data("id")):
+        //         console.log('test')
+        //         break;
+        //     default:
+        //         console.log('basa')
+        //         addModelToLS(); 
+        //         $(this).addClass("selected");
+        //         $(this).text('Added')
+        //         $("#js-order").addClass("visible");
+        // }
+        if(selectedModels == null){
+            console.log('null')
+            addModelToLS();
+            $(this).addClass("selected");
+            $(this).text('Added')
+            $("#js-order").addClass("visible");
+            $.notifyBar({html: 'Added to the list',
+            cssClass: 'success'});
+        }
+       else if(selectedModels.includes($(this).data("id"))){
             console.log('already in — removing from ls')
             removeModelFromLS()
             console.log(selectedModels)
@@ -179,15 +217,15 @@ jQuery(document).ready(function ($) {
             $("#js-order").removeClass("visible");
         }
         else{
+            addModelToLS();
             $.notifyBar({html: 'Added to the list',
             cssClass: 'success'});
             console.log('adding to local')
-            addModelToLS();
             $(this).addClass("selected");
             $(this).text('Added')
             $("#js-order").addClass("visible");
             console.log(selectedModels);
-            showNotification();
+            
         }
         
     });
@@ -195,7 +233,17 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
         console.log(selectedModels);
-        if(!selectedModels.includes($(this).data("id"))){
+
+        if(selectedModels == null){
+            console.log('null')
+            addModelToLS();
+            $("html, body").animate({scrollTop: 0}, 400);
+            $(".shade-starred").fadeIn();
+            $(".starred").fadeIn();
+            fillSelected();
+            $("#js-order").addClass("visible");
+        }
+        else if(!selectedModels.includes($(this).data("id"))){
             addModelToLS();
             $("html, body").animate({scrollTop: 0}, 400);
             $(".shade-starred").fadeIn();
