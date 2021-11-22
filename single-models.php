@@ -126,8 +126,8 @@ $id = get_the_ID();
 
             </ul>
             <div class="model__buttons">
-                <button type="submit" class="model__btn add">ADD TO LIST</button>
-                <button type="submit" class="model__btn order">order now</button>
+                <a id="js-selected" data-id="<?=$id?>" href="#" class='model__btn add cart-button blue '>Add to list</a>
+                <a id="orderNow" data-id="<?=$id?>" href="#" class='model__btn order cart-button'>Order now</a>
             </div>
         </div>
         
