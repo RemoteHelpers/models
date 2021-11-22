@@ -204,6 +204,7 @@ $id = get_the_ID();
 </div>
 
 <script src="<?=$path?>/js/slick.min.js"></script>
+<script src="<?=$path?>/js/jquery.notifyBar.js"></script>
 <?php
     get_footer();
 ?>
