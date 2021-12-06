@@ -135,7 +135,6 @@ jQuery(document).ready(function ($) {
         if(isModelSelected()){
             $("#js-selected").addClass("selected");
             // $("#js-selected").text('Added');
-            $("#js-selected").text('Added');
         }
     }
     $(".starred-models").on("click", ".starred-model-rem", function(e){
@@ -203,7 +202,6 @@ jQuery(document).ready(function ($) {
             // console.log('null')
             addModelToLS();
             $(this).addClass("selected");
-            $(this).text('Added')
             $("#js-order").addClass("visible");
             $.notifyBar({html: 'Added to the list',
             cssClass: 'success'});
@@ -213,7 +211,6 @@ jQuery(document).ready(function ($) {
             removeModelFromLS()
             // console.log(selectedModels)
             $(this).removeClass("selected");
-            $(this).text('Add to list')
             $("#js-order").removeClass("visible");
         }
         else{
@@ -222,7 +219,6 @@ jQuery(document).ready(function ($) {
             cssClass: 'success'});
             // console.log('adding to local')
             $(this).addClass("selected");
-            $(this).text('Added')
             $("#js-order").addClass("visible");
             // // console.log(selectedModels);
             

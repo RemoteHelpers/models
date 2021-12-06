@@ -350,9 +350,7 @@ h2.form-title::after {
     .desktop-p {
         display: none;
     }
-    .mobile-p {
-        display: block;
-    }
+ 
     section {
         padding: 0 37px;
     }
