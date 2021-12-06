@@ -2004,7 +2004,7 @@ img {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 0 114px;
-  padding: 0 84px;
+  /* padding: 0 84px; */
 }
 .model .madel-info-back {
   width: 100%;

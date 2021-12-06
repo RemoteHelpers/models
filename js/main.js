@@ -440,6 +440,7 @@ jQuery(document).ready(function ($) {
             slidesToShow: 1,
             slidesToScroll: 1,
             fade: true,
+            arrows: true
             // asNavFor: '.madel-slide-nav'
         });
         $(".madel-slide-nav").slick({
