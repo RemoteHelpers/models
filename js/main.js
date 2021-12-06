@@ -50,9 +50,18 @@ jQuery(document).ready(function ($) {
         });
     }
     //Order
-    const testobj = $("#js-selected").data("id") && $("#orderNow").data("id");
-    console.log(testobj)
-    
+  
+    function checkLS(){
+        let selectedModels;
+        if(!localStorage.getItem('selectedModels')){
+            // console.log('pizda')
+            selectedModels = []
+        }
+        else{
+             selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
+        }
+        
+    }
     function isModelSelected(){
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels")) || [];
         let currentModelID = $("#js-selected").data("id");
@@ -65,11 +74,11 @@ jQuery(document).ready(function ($) {
         return (selectedModels.length < 1);
     }
     function addModelToLS(){
-        console.log(1)
+        // console.log(1)
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels")) || [];
         let currentModelID = $("#js-selected").data("id");
         selectedModels.push(currentModelID);
-        console.log(currentModelID);
+        // console.log(currentModelID);
         localStorage.setItem("selectedModels", JSON.stringify(selectedModels));
     }
     function removeModelFromLS(){
@@ -79,10 +88,7 @@ jQuery(document).ready(function ($) {
         selectedModels.splice(indexOfCurrentModelID, 1);
         localStorage.setItem("selectedModels", JSON.stringify(selectedModels));
     }
-    function showNotification(){
-
-    }
-
+    
     async function fillSelected(){
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels")) || [];
         let formData = new FormData();
@@ -119,7 +125,7 @@ jQuery(document).ready(function ($) {
             }
         }
         catch (ex){
-            console.log(ex);
+            // console.log(ex);
         }
     }
     if(!(isSelectedEmpty())){
@@ -135,7 +141,7 @@ jQuery(document).ready(function ($) {
     $(".starred-models").on("click", ".starred-model-rem", function(e){
         e.preventDefault();
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
-        console.log($(this))
+        // console.log($(this))
         let currentModelID = $(this).data("id");
         let indexOfCurrentModelID = selectedModels.indexOf(currentModelID);
         if($("#js-selected").length>0){
@@ -156,46 +162,88 @@ jQuery(document).ready(function ($) {
         }
     });
     $( document ).ready(function() {
-        let selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
-        if(selectedModels.includes($("#js-selected").data("id"))){
-            console.log('this model is in local storage');
-            $("#js-selected").text('Added')
-            $("#js-selected").addClass('selected')
-        }
-        else{
-            console.log('isnt')
-        }
+        checkLS()
+        // let selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
+        // if(selectedModels.includes($("#js-selected").data("id"))){
+        //     // console.log('this model is in local storage');
+        //     $("#js-selected").text('Added')
+        //     $("#js-selected").addClass('selected')
+        // }
+        // else{
+        //     // console.log('isnt')
+        // }
     });
     $("#js-selected").on("click", function(e){
         e.preventDefault();
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
-        console.log(selectedModels)
-        if(selectedModels.includes($(this).data("id"))){
-            console.log('already in — removing from ls')
+        // console.log(JSON.parse(localStorage.getItem("selectedModels")))
+        // switch(selectedModels){
+        //     case null:
+        //         // console.log('null')
+        //         addModelToLS(); 
+        //         $(this).addClass("selected");
+        //         $(this).text('Added')
+        //         $("#js-order").addClass("visible");
+        //         break;
+        //     case []:
+        //         // console.log('[]')
+        //         addModelToLS(); 
+        //         break;
+        //     case selectedModels.includes($(this).data("id")):
+        //         // console.log('test')
+        //         break;
+        //     default:
+        //         // console.log('basa')
+        //         addModelToLS(); 
+        //         $(this).addClass("selected");
+        //         $(this).text('Added')
+        //         $("#js-order").addClass("visible");
+        // }
+        if(selectedModels == null){
+            // console.log('null')
+            addModelToLS();
+            $(this).addClass("selected");
+            $(this).text('Added')
+            $("#js-order").addClass("visible");
+            $.notifyBar({html: 'Added to the list',
+            cssClass: 'success'});
+        }
+       else if(selectedModels.includes($(this).data("id"))){
+            // console.log('already in — removing from ls')
             removeModelFromLS()
-            console.log(selectedModels)
+            // console.log(selectedModels)
             $(this).removeClass("selected");
             $(this).text('Add to list')
             $("#js-order").removeClass("visible");
         }
         else{
+            addModelToLS();
             $.notifyBar({html: 'Added to the list',
             cssClass: 'success'});
-            console.log('adding to local')
-            addModelToLS();
+            // console.log('adding to local')
             $(this).addClass("selected");
             $(this).text('Added')
             $("#js-order").addClass("visible");
-            console.log(selectedModels);
-            showNotification();
+            // // console.log(selectedModels);
+            
         }
         
     });
     $("#orderNow").on("click", function(e){
         e.preventDefault();
         let selectedModels = JSON.parse(localStorage.getItem("selectedModels"));
-        console.log(selectedModels);
-        if(!selectedModels.includes($(this).data("id"))){
+        // console.log(selectedModels);
+
+        if(selectedModels == null){
+            // console.log('null')
+            addModelToLS();
+            $("html, body").animate({scrollTop: 0}, 400);
+            $(".shade-starred").fadeIn();
+            $(".starred").fadeIn();
+            fillSelected();
+            $("#js-order").addClass("visible");
+        }
+        else if(!selectedModels.includes($(this).data("id"))){
             addModelToLS();
             $("html, body").animate({scrollTop: 0}, 400);
             $(".shade-starred").fadeIn();
@@ -392,6 +440,7 @@ jQuery(document).ready(function ($) {
             slidesToShow: 1,
             slidesToScroll: 1,
             fade: true,
+            arrows: true
             // asNavFor: '.madel-slide-nav'
         });
         $(".madel-slide-nav").slick({
@@ -485,7 +534,7 @@ jQuery(document).ready(function ($) {
         }//try
         catch( ex ){
 
-            console.log('EX: ' , ex);
+            // console.log('EX: ' , ex);
 
         }//catch
 
@@ -602,7 +651,7 @@ jQuery(document).ready(function ($) {
 
         }//try
         catch (ex) {
-            console.log(ex);
+            // console.log(ex);
         }//catch
 
     });
@@ -668,7 +717,7 @@ jQuery(document).ready(function ($) {
 
         }//try
         catch (ex) {
-            console.log(ex);
+            // console.log(ex);
         }//catch
 
     });
@@ -735,7 +784,7 @@ jQuery(document).ready(function ($) {
 
         }//try
         catch (ex) {
-            console.log(ex);
+            // console.log(ex);
         }//catch
 
     });

@@ -83,7 +83,7 @@ $id = get_the_ID();
                 <?php endforeach; ?>
 
             </ul>
-        <div class="madel-slide">
+        <div class="model-video">
             <?php
             if ( $image_array ) {
 
@@ -92,12 +92,13 @@ $id = get_the_ID();
                     $fullimg = pods_image_url( $image['ID'], 'slideBig');
 
                     ?>
-                    <div><img src="<?=$fullimg?>" alt=""></div>
+                    <video src="<?=$fullimg?>" autoplay controls class='video-player'></video>
             <?php
                 }
             }
             ?>
         </div>
+        
         <div class="madel-info">
 
             <div class="madel-info-tit">
@@ -228,4 +229,5 @@ $id = get_the_ID();
 <?php
     get_footer();
 ?>
+
 

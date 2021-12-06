@@ -68,7 +68,7 @@ for (let i =0; i<files.length; i++) {
         var reader = new FileReader();
         reader.readAsDataURL( files[i] );
         reader.onload = function( _file ){
-
+            console.log('test')
             let src = _file.target.result;
             $1('imges').el.innerHTML+=`<li data-id-im = ${--countCur}>
                             <a id="deleteImage" data-id-im = ${countCur} href="#"></a>
@@ -79,7 +79,24 @@ for (let i =0; i<files.length; i++) {
             
         } // END reader.onload()
         // count++;
-    } // END test if file.type === image
+    }
+    else if(files[i].type === 'video/mp4'){
+        filesArray[count++]=files[i];
+        let countCur = count;
+        var reader = new FileReader();
+        reader.readAsDataURL( files[i] );
+        reader.onload = function( _file ){
+            console.log('video upload')
+            let src = _file.target.result;
+            $1('imges').el.innerHTML+=`
+            <li data-id-im = ${--countCur}>
+                <a id="deleteImage" data-id-im = ${countCur} href="#"></a>
+                <video src='${src}' width='50px'></video>
+            </li>`
+    }
+}
+    // END test if file.type === image
+    console.log('finish')
 }
 
 }

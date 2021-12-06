@@ -8,9 +8,7 @@ $texts = get_posts([
     'post_type' => 'textHome'
 ]);
 ?>
-
     <div class="home">
-        123
         <section class="home-about row">
             <a class="home-link" href="/catalog"><span>Models</span></a>
             <div class="home-txt cell">
