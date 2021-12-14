@@ -785,3 +785,8 @@ jQuery(document).ready(function ($) {
 
     });
 });
+
+
+jQuery(document).ready(function () {
+    jQuery('iframe').contents().find('.vp-center').css({'justify-content':'flex-end'});
+});

@@ -51,12 +51,17 @@
   width: 55%;
   position: relative;
 }
-.video-player {
+.model-video iframe,
+.model-video object,
+.model-video embed {
   width: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-position: right;
   height: 100%;
-  position: absolute;
+
+}
+.model-video .player, .player *, .player ::after, .player ::before{
+  max-width: 100% !important;
+  max-height: none !important;
 }
 .model .madel-info .madel-info-list dl dd {
   font-family: Montserrat;
@@ -276,6 +281,7 @@
   .model-video {
     width: 100% !important;
     padding-left: 50px;
+    height: 900px;
   }
   .model {
     flex-wrap: nowrap !important;
@@ -304,6 +310,7 @@
     padding-left: 0;
     margin-top: 50px;
   }
+
 }
 @media (max-width: 690px) {
   .mdl__spec_info {
@@ -312,4 +319,25 @@
 }
 .mobile {
   display: none !important;
+}
+
+
+
+
+@media (max-width: 1023px){
+  .model-video{
+    display: none;
+  }
+}
+
+
+.model-video-mobile{
+    display: none;
+}
+
+
+@media (max-width: 1023px){
+  .model-video-mobile{
+    display: block;
+  }
 }

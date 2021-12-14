@@ -129,6 +129,38 @@ $id = get_the_ID();
         ?>
     </div>
 </ul>
+<div class="model-video model-video-mobile">
+            <?php
+               
+
+                // Load value.
+                $iframe = get_field('video_mdls');
+                
+                // Use preg_match to find iframe src.
+                preg_match('/src="(.+?)"/', $iframe, $matches);
+                $src = $matches[1];
+                
+                // Add extra parameters to src and replcae HTML.
+                $params = array(
+                    'controls'  => 0,
+                    'hd'        => 1,
+                    'autohide'  => 1
+                );
+                $new_src = add_query_arg($params, $src);
+                $iframe = str_replace($src, $new_src, $iframe);
+                
+                // Add extra attributes to iframe HTML.
+                $attributes = 'id="mdlsVideo"';
+                $iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+                
+                // Display customized HTML.
+                echo $iframe;
+               
+            ?>
+         
+
+
+        </div>
 <div class="mdl__descriotion">
     <p><?=$about?></p>
 </div>
@@ -182,19 +214,37 @@ $id = get_the_ID();
 </div>
         <div class="model-video">
             <?php
-            if ( $image_array ) {
+               
 
-                foreach ( $image_array as $image ) {
-
-                    $fullimg = pods_image_url( $image['ID'], 'slideBig');
-
-                    ?>
-                    <video src="<?=$fullimg?>" autoplay controls class='video-player'></video>
-            <?php
-                }
-            }
+                // Load value.
+                $iframe = get_field('video_mdls');
+                
+                // Use preg_match to find iframe src.
+                preg_match('/src="(.+?)"/', $iframe, $matches);
+                $src = $matches[1];
+                
+                // Add extra parameters to src and replcae HTML.
+                $params = array(
+                    'controls'  => 0,
+                    'hd'        => 1,
+                    'autohide'  => 1
+                );
+                $new_src = add_query_arg($params, $src);
+                $iframe = str_replace($src, $new_src, $iframe);
+                
+                // Add extra attributes to iframe HTML.
+                $attributes = 'id="mdlsVideo"';
+                $iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+                
+                // Display customized HTML.
+                echo $iframe;
+               
             ?>
+         
+
+
         </div>
+     
         
        
  
@@ -269,7 +319,12 @@ $id = get_the_ID();
 
 
 </div>
+<script>
 
+jQuery(document).ready(function () {
+    jQuery('iframe').contents().find('#mdlsVideo').css({'display':'none'});
+});
+</script>
 <script src="<?=$path?>/js/slick.min.js"></script>
 <script src="<?=$path?>/js/jquery.notifyBar.js"></script>
 <?php

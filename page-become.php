@@ -70,8 +70,10 @@ $texts = get_posts([
                     <li class="bm-list-item">
                          <?php the_sub_field("step"); ?>
                     </li>
+                
                     <?php endwhile;
                     ?>
+                   
                 </ul>
             </div>
         </div>
