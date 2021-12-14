@@ -181,19 +181,9 @@ $id = get_the_ID();
 </div>
 </div>
         <div class="model-video">
-            <?php
-            if ( $image_array ) {
-
-                foreach ( $image_array as $image ) {
-
-                    $fullimg = pods_image_url( $image['ID'], 'slideBig');
-
-                    ?>
-                    <video src="<?=$fullimg?>" autoplay controls class='video-player'></video>
-            <?php
-                }
-            }
-            ?>
+            <?php the_field('video_models'); ?>
+         
+            <!-- <div style="padding:177.78% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/655312161?h=63bb27cf7c&autoplay=1&loop=1&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script> -->
         </div>
         
        

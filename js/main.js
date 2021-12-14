@@ -94,6 +94,7 @@ jQuery(document).ready(function ($) {
         let formData = new FormData();
         formData.append('action', 'getModelsListFavorites');
         try{
+            console.log('try', Date.now())
             let response = await $.ajax({
                 'url': '/wp-admin/admin-ajax.php',
                 'type': 'POST',
@@ -103,12 +104,14 @@ jQuery(document).ready(function ($) {
                 dataType: "json",
             });
             if (+response.code === 200){
+                console.log('response200', Date.now())
                 let models = response.models;
                 let filtered = models.filter(model=>{
                     return (selectedModels.indexOf(+model.modelID) > -1);
                 });
                 $(".starred-model").remove();
                 filtered.forEach(model=>{
+                    console.log('forEach', Date.now())
                     $(".starred-models").append(`
                 <li class="starred-model">
                     <input class="starred-model-id" name="starred-model-id" type="hidden" value="${model.modelID}">
